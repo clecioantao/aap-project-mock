@@ -1,0 +1,7 @@
+---
+- name: Playbook de ping
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Testar conectividade com ping
+      ansible.builtin.ping:
