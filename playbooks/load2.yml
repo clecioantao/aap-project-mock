@@ -1,10 +1,9 @@
-# playbooks/load.yml 
 - name: Mock - Load & Logs
-  hosts: local
-  gather_facts: false
+  hosts: localhost
+  gather_facts: true   # agora ansible_date_time vai existir
   vars:
-    iterations: 30     # pode sobrescrever no Job Template
-    sleep_s: 1         # idem
+    iterations: 30
+    sleep_s: 1
   tasks:
     - name: Generate logs
       ansible.builtin.debug:
