@@ -1,9 +1,10 @@
+# playbooks/load.yml 
 - name: Mock - Load & Logs
   hosts: local
   gather_facts: false
   vars:
-    iterations: "{{ iterations | default(30) }}"
-    sleep_s: "{{ sleep_s | default(1) }}"
+    iterations: 30     # pode sobrescrever no Job Template
+    sleep_s: 1         # idem
   tasks:
     - name: Generate logs
       ansible.builtin.debug:
@@ -11,4 +12,4 @@
       loop: "{{ range(1, iterations|int + 1) | list }}"
 
     - name: Simulate short workload
-      ansible.builtin.command: "sleep {{ sleep_s }}"
+      ansible.builtin.command: "sleep {{ sleep_s | int }}"
