@@ -1,7 +1,6 @@
----
-- name: Playbook de ping
-  hosts: all
-  gather_facts: no
+- name: Mock - Ping
+  hosts: local
+  gather_facts: false
   tasks:
-    - name: Testar conectividade com ping
+    - name: Ping localhost
       ansible.builtin.ping:
